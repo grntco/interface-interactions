@@ -18,10 +18,8 @@ html, body {
 }
 
 nav {
-    outline: 1px solid red;
     height: min-content;
     padding: 24px 24px;
-    /* width: 100%; */
     display: flex;
     align-items: center;
     min-height: 64px;
@@ -42,7 +40,6 @@ nav {
     display: flex;
     align-items: center;
     padding: 8px 24px;
-    border-radius: 8px;
 }
 
 .nav-link a {
@@ -60,16 +57,10 @@ nav {
     gap: 4px;
 }
 
-.nav-links-container:last-child a i {
-    /* margin-top: 1px; */
-    /* eh */
-}
-
 .nav-cta {
     margin-left: auto;
-    /* border-radius: 8px; */
+    border-radius: 8px;
     background-color: var(--secondary-bg-color);
-    /* backdrop-filter: blur(20px); */
 }
 
 .drop-down-link {
@@ -79,8 +70,8 @@ nav {
     align-items: center;
 }
 
-.drop-down-link {
-    /* background-color: var(--secondary-bg-color); */
+.drop-down-link a { 
+    z-index: 1;
 }
 
 .drop-down-menu {
@@ -89,13 +80,13 @@ nav {
 
 .drop-down-menu.visible {
     position: absolute;
-    top: 48px;
+    top: 0px;
     list-style: none;
-    padding: 8px 48px 8px 16px;
+    padding: 48px 48px 8px 16px;
     display: flex;
     flex-direction: column;
     gap: 16px;
     background-color: var(--secondary-bg-color);
-    border-radius: 0px 0px 8px 8px;
+    border-radius: 8px;
 }
 
