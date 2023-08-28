@@ -4,10 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script src="app.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c506488b1f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href=
+"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.css">
+</link>
+    <script src="app.js" defer></script>    
     <title>UI Interactions</title>
 </head>
 <body>
-
+    <nav>
+        <h1 class="logo">UI Interactions</h1>
+        <ul class="nav-links-container">
+            <li class="nav-link"><a href="">Products</a></li>
+            <li class="nav-link"><a href="">Pricing</a></li>
+            <li class="nav-link drop-down-link">
+                <a href="">Company<i class="fa-solid fa-angle-down"></i></a>
+                <ul class="drop-down-menu visible">
+                    <li><a href="">About</a></li>
+                    <li><a href="">Blog</a></li>
+                    <li><a href="">Careers</a></li>
+                </ul>
+            </li>
+        </ul>
+        <div class="nav-cta nav-link">
+            <a href="">Sign In</a>
+        </div>
+    </nav>
 </body>
 </html>
