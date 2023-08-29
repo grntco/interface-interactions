@@ -1,26 +1,16 @@
 const dropDown = document.querySelector('.drop-down');
-const menu = document.querySelector('.menu');
+const menu = dropDown.querySelector('.menu');
 const companyLink = dropDown.querySelector('a');
 const sidebar = document.querySelector('.nav-links-container');
 const mobileMenu = document.querySelector('.mobile-menu');
 
-// function activateDropDown() {
-//     companyLink.innerHTML = 'Company<i class="fa-solid fa-angle-up"></i>'
-//     menu.classList.add('visible');
-// }
-
-// function disableDropDown() {
-//     companyLink.innerHTML = 'Company<i class="fa-solid fa-angle-down"></i>'
-//     menu.classList.remove('visible');
-// }
-
 function toggleDropDown() {
-    if (menu.classList.contains('visible')) {
+    if (menu.classList.contains('expanded')) {
         companyLink.innerHTML = 'Company<i class="fa-solid fa-angle-down"></i>'
-        menu.classList.remove('visible');
+        menu.classList.remove('expanded');
     } else {
         companyLink.innerHTML = 'Company<i class="fa-solid fa-angle-up"></i>'
-        menu.classList.add('visible');
+        menu.classList.add('expanded');
     }
 }
 
@@ -29,11 +19,20 @@ function toggleSidebar() {
     sidebar.classList.remove('collapsed');
     mobileMenu.classList.add('expanded');
    } else {
+    if (menu.classList.contains('expanded')) toggleDropDown();
     sidebar.classList.add('collapsed');
     mobileMenu.classList.remove('expanded');
    }
 }
 
-dropDown.addEventListener('mouseover', toggleDropDown);
-dropDown.addEventListener('mouseout', toggleDropDown);
+dropDown.addEventListener('mouseover', () => {
+    if (window.innerWidth > 767) toggleDropDown();
+});
+dropDown.addEventListener('mouseout', () => {
+    if (window.innerWidth > 767) toggleDropDown();
+});
+dropDown.addEventListener('click', () => {
+    if (window.innerWidth <= 767) toggleDropDown();
+})
+
 mobileMenu.addEventListener('click', toggleSidebar);
