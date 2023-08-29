@@ -1,16 +1,16 @@
-const dropDownLink = document.querySelector('.drop-down-link');
-const dropDownMenu = document.querySelector('.drop-down-menu');
-const companyLink = dropDownLink.querySelector('a');
+const dropDown = document.querySelector('.drop-down');
+const menu = document.querySelector('.menu');
+const companyLink = dropDown.querySelector('a');
 
 function activateDropDown() {
     companyLink.innerHTML = 'Company<i class="fa-solid fa-angle-up"></i>'
-    dropDownMenu.classList.add('visible');
+    menu.classList.add('visible');
 }
 
 function disableDropDown() {
     companyLink.innerHTML = 'Company<i class="fa-solid fa-angle-down"></i>'
-    dropDownMenu.classList.remove('visible');
+    menu.classList.remove('visible');
 }
 
-dropDownLink.addEventListener('mouseover', activateDropDown);
-dropDownLink.addEventListener('mouseout', disableDropDown);
+dropDown.addEventListener('mouseover', activateDropDown);
+dropDown.addEventListener('mouseout', disableDropDown);
