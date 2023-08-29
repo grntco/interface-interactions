@@ -26,13 +26,13 @@ function toggleSidebar() {
 }
 
 dropDown.addEventListener('mouseover', () => {
-    if (window.innerWidth > 767) toggleDropDown();
+    if (window.innerWidth > 1024) toggleDropDown();
 });
 dropDown.addEventListener('mouseout', () => {
-    if (window.innerWidth > 767) toggleDropDown();
+    if (window.innerWidth > 1024) toggleDropDown();
 });
 dropDown.addEventListener('click', () => {
-    if (window.innerWidth <= 767) toggleDropDown();
+    if (window.innerWidth <= 1024) toggleDropDown();
 })
 
 mobileMenu.addEventListener('click', toggleSidebar);
