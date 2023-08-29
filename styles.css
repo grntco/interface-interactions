@@ -5,16 +5,24 @@
 
 :root {
     --primary-bg-color: #020617;
-    --secondary-bg-color: #c7d2fe;
+    --secondary-bg-color: #1e1b4b;
+    --tertiary-bg-color: #c7d2fe;
     --primary-txt-color: #818cf8;
     --primary-txt-color-hover: #6366f1;
-
 }
 
-html, body {
+body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--primary-bg-color);
     color: var(--primary-txt-color);
+    height: 100vh;
+    overflow-x: hidden;
+    display: flex;
+    flex-flow: column;
+}
+
+a i {
+    pointer-events: none;
 }
 
 nav {
@@ -24,7 +32,6 @@ nav {
     align-items: center;
     min-height: 64px;
     gap: 12px;
-    outline: 1px solid red;
     width: 100%;
 }
 
@@ -49,22 +56,27 @@ nav {
 .nav-link a {
     text-decoration: none;
     color: var(--primary-txt-color);
+    display: flex;
+    align-items: center;
+    gap: 4px;
 }
 
 .nav-link a:hover {
     color: var(--primary-txt-color-hover);
 }
 
-.nav-links-container :nth-child(3) a {
-    display: flex;
-    align-items: center;
-    gap: 4px;
-}
-
 .nav-cta {
     margin-left: auto;
     border-radius: 8px;
-    background-color: var(--secondary-bg-color);
+    background-color: var(--tertiary-bg-color);
+}
+
+.nav-cta a {
+    transition: all 0.3s ease;
+}
+
+.nav-cta a:hover {
+    gap: 8px;
 }
 
 .nav-cta:hover {
@@ -84,7 +96,6 @@ nav {
 
 .drop-down .menu {
     display: none;
-    transition: all 0.3s ease;
 }
 
 .drop-down .menu.visible {
@@ -95,13 +106,13 @@ nav {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    background-color: var(--secondary-bg-color);
+    background-color: var(--tertiary-bg-color);
     border-radius: 8px;
     box-shadow: 0px 2px 8px 0px rgba(193, 188, 206, 0.7);
 }
 
 .mobile-menu {
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 4px;
     padding: 8px 4px;
@@ -110,7 +121,7 @@ nav {
 }
 
 .mobile-menu:hover {
-    background-color: var(--secondary-bg-color);
+    background-color: var(--tertiary-bg-color);
     box-shadow: 0px 2px 8px 0px rgba(193, 188, 206, 0.7);
     cursor: pointer;
 }
@@ -124,6 +135,7 @@ nav {
     height: 2px;
     background-color: var(--primary-txt-color);
     border-radius: 2px;
+    transition: all 0.3s ease;
 }
 
 .mobile-menu.expanded :nth-child(1) {
@@ -138,40 +150,35 @@ nav {
     display: none;
 }
 
+section {
+    background-color: var(--secondary-bg-color);
+    flex-grow: 1;
+}
+
 
 
 @media screen and (max-width: 767px) {
-    nav {
-        /* flex-direction: column; */
-        outline: 1px solid red;
-        /* justify-content: start; */
-    }
-
-    .logo {
-        /* display: block;
-         */
-        /* flex: 0 0 auto; */
-    }
-
     .mobile-menu {
         margin-left: auto;
-        /* flex: 0 0 auto; */
-        /* align-items: center; */
+        display: flex;
+    }
+
+    .mobile-menu.expanded:hover {
+        background-color: none;
     }
 
     .nav-links-container {
-        background-color: var(--secondary-bg-color);
+        background-color: var(--tertiary-bg-color);
         flex-direction: column;
         align-items: end;
-        position: absolute;
         font-size: 1.3rem;
         gap: 24px;
-        height: 100vh;
         padding-top: 96px;
         min-width: 336px;
+        position: absolute;
         top: -24px;
+        bottom: 0;
         right: 0;
-        /* transform: translateX(336px); */
         transition: all 0.3s ease-in;
     }
 
@@ -181,6 +188,17 @@ nav {
 
     .nav-cta {
         margin-left: 0;
+    }
+
+    .nav-cta:hover {
+        box-shadow: none;
+    }
+
+    .drop-down .menu.visible {
+        position: relative;
+        padding: 24px 0px 0px 48px;
+        align-items: end;
+        box-shadow: none;
     }
 }
 
