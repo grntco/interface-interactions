@@ -12,5 +12,20 @@ function disableDropDown() {
     menu.classList.remove('visible');
 }
 
+const sidebar = document.querySelector('.nav-links-container');
+const mobileMenu = document.querySelector('.mobile-menu');
+
+function toggleSidebar() {
+   if (sidebar.classList.contains('collapsed')) {
+    sidebar.classList.remove('collapsed');
+    mobileMenu.classList.add('expanded');
+   } else {
+    sidebar.classList.add('collapsed');
+    mobileMenu.classList.remove('expanded');
+   }
+}
+
+mobileMenu.addEventListener('click', toggleSidebar);
+
 dropDown.addEventListener('mouseover', activateDropDown);
 dropDown.addEventListener('mouseout', disableDropDown);

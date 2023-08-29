@@ -104,8 +104,9 @@ nav {
     display: flex;
     flex-direction: column;
     gap: 4px;
-    padding: 8px 6px;
+    padding: 8px 4px;
     border-radius: 4px;
+    z-index: 3;
 }
 
 .mobile-menu:hover {
@@ -161,15 +162,21 @@ nav {
     .nav-links-container {
         background-color: var(--secondary-bg-color);
         flex-direction: column;
-        align-items: start;
+        align-items: end;
         position: absolute;
-        opacity: 50%;
-        /* width: 100%; */
+        font-size: 1.3rem;
+        gap: 24px;
         height: 100vh;
-        translate: left;
+        padding-top: 96px;
+        min-width: 336px;
         top: -24px;
-        left: -24px;
         right: 0;
+        /* transform: translateX(336px); */
+        transition: all 0.3s ease-in;
+    }
+
+    .nav-links-container.collapsed {
+        transform: translateX(336px);
     }
 
     .nav-cta {
