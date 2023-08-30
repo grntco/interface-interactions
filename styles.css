@@ -116,34 +116,25 @@ section {
     background-color: var(--secondary-bg-color);
     flex-grow: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.carousel-container {
-    display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    padding: 24px;
-    border-radius: 4px;
-    background-color: var(--primary-bg-color);
+    align-items: center;
 }
 
 .carousel {
     display: flex;
-    padding: 24px 96px;
+    align-items: center;
+    justify-content: center;
+    height: 512px;
+    width: 512px;
+    position: relative;
+    flex-wrap: wrap;
 }
 
-.arrow-btn-wrapper {
+.arrow-btn {
     display: flex;
     align-items: center;
-    padding: 8px;
-}
-
-.arrow-btn-wrapper button {
-    display: flex;
-    align-items: center;
+    height: fit-content;
     outline: none;
     border: none;
     padding: 8px 12px;
@@ -154,7 +145,15 @@ section {
     transition: all 0.3s ease;
 }
 
-.arrow-btn-wrapper button:hover {
+#left-arrow {
+    margin-right: 16px;
+}
+
+#right-arrow {
+    margin-left: 16px;
+}
+
+.arrow-btn:hover {
     cursor: pointer;
     transform: scale(1.2);
     color: var(--primary-txt-color-hover);
@@ -162,27 +161,36 @@ section {
 
 .frame {
     display: flex;
-    max-width: 336px;
+    position: relative;
     height: 336px;
+    width: 336px;  
 }
 
-.frame img {
-    display: none;
+.slide {
+    list-style: none;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.5s  ease-in-out;
 }
 
-.frame img.visible {
-    display: block;
+.slide.visible {
+    opacity: 1;
 }
 
-
-.bottom-btn-container {
+.slide > img {
     width: 100%;
+} 
+
+.indicator-container {
+    flex-grow: 1;
+    align-self: start;
     display: flex;
     justify-content: center;
     gap: 24px;
 }
 
-.bottom-btn-container button {
+.indicator {
     padding: 4px;
     border-radius: 50%;
     border: 2px solid var(--tertiary-bg-color);
@@ -190,19 +198,15 @@ section {
     transition: all 0.3s ease;
 }
 
-.bottom-btn-container button:hover {
+.indicator:hover {
     transform: scale(1.4);
     cursor: pointer;
     background-color: var(--tertiary-bg-color);
 }
 
-.bottom-btn-container button.selected {
+.indicator.selected {
     background-color: var(--tertiary-bg-color);
 }
-
-
-
-
 
 @media screen and (max-width: 1024px) {
     .mobile-menu {
@@ -211,7 +215,7 @@ section {
         gap: 4px;
         padding: 8px 4px;
         border-radius: 4px;
-        z-index: 2;
+        z-index: 3;
         margin-left: auto;
     }
     
@@ -261,6 +265,7 @@ section {
         min-width: 336px;
         font-size: 1.3rem;
         transition: all 0.3s ease-in;
+        z-index: 2;
         background-color: var(--tertiary-bg-color);
     }
 

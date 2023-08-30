@@ -36,3 +36,37 @@ dropDown.addEventListener('click', () => {
 })
 
 mobileMenu.addEventListener('click', toggleSidebar);
+
+
+const slides = document.querySelectorAll('.slide')
+
+function nextImage() {
+    const currentSlide = [ ...slides].find(slide => slide.classList.contains('visible'));
+    let currentIndex = [ ...slides].indexOf(currentSlide);
+    
+    if (currentIndex === slides.length - 1) {
+        slides[0].classList.add('visible');
+    } else {
+        slides[currentIndex + 1].classList.add('visible');
+    }
+    currentSlide.classList.remove('visible');
+}
+
+function previousImage() {
+    const currentSlide = [ ...slides].find(slide => slide.classList.contains('visible'));
+    let currentIndex = [ ...slides].indexOf(currentSlide);
+
+    if (currentIndex === 0) {
+        slides[slides.length - 1].classList.add('visible');
+    } else {
+        slides[currentIndex - 1].classList.add('visible');
+    }
+    currentSlide.classList.remove('visible');
+}
+
+const nextBtn = document.getElementById('right-arrow');
+nextBtn.addEventListener('click', nextImage);
+
+const previousBtn = document.getElementById('left-arrow');
+previousBtn.addEventListener('click', previousImage);
+
