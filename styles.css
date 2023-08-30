@@ -26,6 +26,10 @@ h1, h2 {
     font-weight: 600;
 }
 
+h2 {
+    font-size: 1.3rem;
+}
+
 nav {
     display: flex;
     align-items: center;
@@ -205,6 +209,7 @@ section {
 }
 
 .indicator.selected {
+    transform: scale(1.2);
     background-color: var(--tertiary-bg-color);
 }
 

@@ -39,28 +39,35 @@ mobileMenu.addEventListener('click', toggleSidebar);
 
 
 const slides = document.querySelectorAll('.slide')
+const indicators = document.querySelectorAll('.indicator');
 
 function nextImage() {
     const currentSlide = [ ...slides].find(slide => slide.classList.contains('visible'));
-    let currentIndex = [ ...slides].indexOf(currentSlide);
+    const currentIndex = [ ...slides].indexOf(currentSlide);
     
     if (currentIndex === slides.length - 1) {
         slides[0].classList.add('visible');
+        indicators[0].classList.add('selected');
     } else {
         slides[currentIndex + 1].classList.add('visible');
+        indicators[currentIndex + 1].classList.add('selected');
     }
+    indicators[currentIndex].classList.remove('selected');
     currentSlide.classList.remove('visible');
 }
 
 function previousImage() {
     const currentSlide = [ ...slides].find(slide => slide.classList.contains('visible'));
-    let currentIndex = [ ...slides].indexOf(currentSlide);
+    const currentIndex = [ ...slides].indexOf(currentSlide);
 
     if (currentIndex === 0) {
         slides[slides.length - 1].classList.add('visible');
+        indicators[slides.length - 1].classList.add('selected');
     } else {
         slides[currentIndex - 1].classList.add('visible');
+        indicators[currentIndex - 1].classList.add('selected');
     }
+    indicators[currentIndex].classList.remove('selected');
     currentSlide.classList.remove('visible');
 }
 
@@ -69,4 +76,18 @@ nextBtn.addEventListener('click', nextImage);
 
 const previousBtn = document.getElementById('left-arrow');
 previousBtn.addEventListener('click', previousImage);
+
+indicators.forEach(indicator => {
+    indicator.addEventListener('click', () => {
+        const currentSlide = [ ...slides].find(slide => slide.classList.contains('visible'));
+        const currentIndex = [ ...slides].indexOf(currentSlide);
+        const clickedIndex = [ ...indicators].indexOf(indicator);
+
+        currentSlide.classList.remove('visible');
+        indicators[currentIndex].classList.remove('selected');
+
+        slides[clickedIndex].classList.add('visible');
+        indicators[clickedIndex].classList.add('selected'); 
+    })
+});
 
